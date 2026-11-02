@@ -69,7 +69,17 @@ Copy the complete skills/intract directory into the desired location. Invoke it 
 
 ## Upload to Claude.ai
 
-Claude.ai custom Skills use a ZIP upload rather than the npm CLI. Upload a ZIP whose root contains an intract folder with SKILL.md and the referenced resources. The ZIP distributed in GitHub releases is intended for this upload flow. Claude Code and Claude.ai are separate installation targets.
+Claude.ai custom Skills use a ZIP upload rather than the npm CLI. Create a ZIP with an intract folder at its root.
+
+On macOS/Linux, from the repository root:
+
+    cd skills && zip -r ../intract-claude-upload.zip intract
+
+On Windows PowerShell, from the repository root:
+
+    Compress-Archive -Path .\skills\intract -DestinationPath .\intract-claude-upload.zip
+
+Upload that ZIP through Claude's Skills interface and enable the skill. Claude Code and Claude.ai are separate installation targets.
 
 ## Development
 
@@ -106,7 +116,7 @@ The repository includes a tag-triggered workflow at .github/workflows/publish-np
 4. Allow direct npm publish for that trusted publisher.
 5. Create and push a version tag, for example v0.1.0, after the version in package.json is ready.
 
-The workflow runs validation and tests before publishing. npm Trusted Publishing requires a supported npm CLI and GitHub-hosted runner; setup is described in the official npm documentation.
+The workflow runs validation and tests before publishing. npm Trusted Publishing requires a supported npm CLI and GitHub-hosted runner; see the official npm documentation.
 
 ## Repository structure
 
