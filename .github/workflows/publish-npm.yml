@@ -1,0 +1,27 @@
+name: Publish Intract CLI to npm
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  test-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          registry-url: "https://registry.npmjs.org"
+          package-manager-cache: false
+      - name: Validate package
+        run: npm run validate
+      - name: Run CLI tests
+        run: npm test
+      - name: Publish with npm trusted publishing
+        run: npm publish --access public

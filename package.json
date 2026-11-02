@@ -1,0 +1,47 @@
+{
+  "name": "ai-skill-intractive",
+  "version": "0.1.0",
+  "description": "Install the Intract clarification skill into Claude Code with one command.",
+  "license": "MIT",
+  "author": "Pavithran S",
+  "homepage": "https://github.com/Pavithran26/AI-Skill#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pavithran26/AI-Skill.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Pavithran26/AI-Skill/issues"
+  },
+  "keywords": [
+    "ai-skill",
+    "agent-skills",
+    "claude-code",
+    "claude-skill",
+    "prompt-engineering",
+    "clarification",
+    "intract"
+  ],
+  "type": "commonjs",
+  "bin": {
+    "ai-skill-intractive": "bin/cli.cjs",
+    "intract": "bin/cli.cjs"
+  },
+  "files": [
+    "bin/",
+    "skills/intract/",
+    "scripts/validate-package.cjs",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test",
+    "validate": "node scripts/validate-package.cjs",
+    "prepack": "node scripts/validate-package.cjs"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
